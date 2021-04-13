@@ -1,6 +1,6 @@
 package com.br.gabryel.spring.producer.controller;
 
-import com.br.gabryel.spring.producer.model.Message;
+import com.br.gabryel.spring.producer.model.Mensagem;
 import com.br.gabryel.spring.producer.service.AmqpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +17,8 @@ public class AmqpController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping("/send")
-    public void sendToConsumer(@RequestBody Message message) {
+    public void sendToConsumer(@RequestBody Mensagem mensagem) {
 
-        amqp.SendToConsumer(message);
+        amqp.SendToConsumer(mensagem);
     }
 }

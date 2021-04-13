@@ -1,7 +1,7 @@
 package com.br.gabryel.spring.producer.service.impl;
 
 import com.br.gabryel.spring.producer.amqp.AmqpProducer;
-import com.br.gabryel.spring.producer.model.Message;
+import com.br.gabryel.spring.producer.model.Mensagem;
 import com.br.gabryel.spring.producer.service.AmqpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 public class RabbitMQServiceImpl implements AmqpService {
 
     @Autowired
-    private AmqpProducer<Message> amqp;
+    private AmqpProducer<Mensagem> amqp;
 
     @Override
-    public void SendToConsumer(Message message) {
+    public void SendToConsumer(Mensagem mensagem) {
 
-        amqp.producer(message);
+        amqp.producer(mensagem);
     }
 }

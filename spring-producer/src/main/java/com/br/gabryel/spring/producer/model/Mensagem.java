@@ -1,10 +1,10 @@
-package com.br.gabryel.spring.consumer.model;
+package com.br.gabryel.spring.producer.model;
 
-public class Message {
+public class Mensagem {
 
     private String text;
 
-    public Message() {
+    public Mensagem() {
     }
 
     public String getText() {

@@ -1,6 +1,6 @@
 package com.br.gabryel.spring.consumer.service.impl;
 
-import com.br.gabryel.spring.consumer.model.Message;
+import com.br.gabryel.spring.consumer.model.Mensagem;
 import com.br.gabryel.spring.consumer.service.ConsumerService;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.stereotype.Service;
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 public class ConsumerServiceImpl implements ConsumerService {
 
     @Override
-    public void action(Message message) {
-        if ("teste".equalsIgnoreCase(message.getText())) {
+    public void action(Mensagem mensagem) {
+        if ("teste".equalsIgnoreCase(mensagem.getText())) {
             throw new AmqpRejectAndDontRequeueException("erro");
         }
 
-        System.out.println(message.getText());
+        System.out.println(mensagem.getText());
     }
 }
