@@ -50,9 +50,10 @@ public class RePublishRabbitMQ implements AmqpRePublish {
             if (retriesHeader == null) {
                 retriesHeader = 0;
             }
-            if (qtdeProcessRabbitMQ <= 3) {
 
-                headerList.put(X_RETRIES_HEADER, retriesHeader++);
+            if (qtdeProcessRabbitMQ < 3) {
+
+                headerList.put(X_RETRIES_HEADER, retriesHeader + 1);
                 rabbitTemplate.send(exchange, queue, message);
             } else {
 
