@@ -14,14 +14,25 @@ public class RabbitMQConsumerImpl implements AmqpConsumer<Mensagem> {
     @Autowired
     private ConsumerService consumerService;
 
+    private Integer counter = 0;
+
     @Override
     @RabbitListener(queues = "${spring.rabbitmq.request.routing-key.producer}")
     public void consumer(Mensagem mensagem) {
 
         try {
+            counter++;
             consumerService.action(mensagem);
         } catch (Exception ex) {
             throw new AmqpRejectAndDontRequeueException(ex);
         }
+    }
+
+    public Integer getCounter() {
+        return counter;
+    }
+
+    public void initCounter() {
+        this.counter = 0;
     }
 }

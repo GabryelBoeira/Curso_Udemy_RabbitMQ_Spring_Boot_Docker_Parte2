@@ -7,6 +7,10 @@ public class Mensagem {
     public Mensagem() {
     }
 
+    public Mensagem(String text) {
+        this.text = text;
+    }
+
     public String getText() {
         return text;
     }

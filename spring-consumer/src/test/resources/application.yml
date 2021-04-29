@@ -1,0 +1,26 @@
+server:
+  port: 8082
+# RabbitMQ properties
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5600
+    username: guest
+    password: guest
+    listener:
+      time-retry: 00 06 17 * * *
+    request:
+      exchange:
+        producer: ex.producer.aula-spring
+      routing-key:
+        producer: rk.producer.aula-spring
+      dead-letter:
+        producer: dl.producer.aula-spring
+      parking-lot:
+        producer: pl.producer.aula-spring
+
+---
+spring:
+  qtdeProcessamentoRabbitMQ: 3
+  application:
+    name: spring-consumer
